@@ -1,63 +1,70 @@
-# 🎓 Platziflix - Plataforma de Cursos OnlineAdd commentMore actions
+# 🎓 Platziflix
 
-## Descripción del Proyecto
+Plataforma de cursos online simple y directa.
 
-Platziflix es una plataforma online de cursos simple y directa. Cada curso contiene clases con descripciones básicas. Es una implementación minimalista enfocada en la funcionalidad core de distribución de contenido educativo.
+## Descripción
+
+Platziflix es una plataforma minimalista enfocada en la distribución de contenido educativo. Cada curso contiene clases con descripciones básicas.
 
 ## Stack Tecnológico
 
-### Backend
-- **Python** - Lenguaje principal
-- **FastAPI** - Framework web moderno
-- **PostgreSQL** - Base de datos relacional
-- **Docker** - Contenedores para despliegue y desarrollo local
+- **Backend**: Python + FastAPI + PostgreSQL
+- **Frontend**: TypeScript + CSS Modules + SASS
+- **Mobile**: Swift + SwiftUI (iOS) / Kotlin + Jetpack Compose (Android)
 
-### Frontend
-- **TypeScript** - Lenguaje con tipado estático
-- **CSS Modules** - Estilos modulares
-- **SASS** - Preprocesador de CSS
-
-### Mobile
-- **iOS**: Swift + SwiftUI
-- **Android**: Kotlin + Jetpack Compose
-
-## Arquitectura
+## Estructura del Proyecto
 
 ```
-Frontend (TypeScript)     Mobile Apps (Swift/Kotlin)
-        │                           │
-        └─────────┬─────────────────┘
-                  │
-            Backend API (FastAPI)
-                  │
-            Database (PostgreSQL)
+platziflix/
+├── app/
+│   ├── __init__.py
+│   ├── main.py          # Aplicación FastAPI
+│   ├── core/
+│   │   ├── __init__.py
+│   │   └── config.py    # Configuración de la aplicación
+│   └── db/
+│       ├── __init__.py
+│       └── base.py      # Configuración de base de datos
+├── pyproject.toml       # Dependencias y configuración
+└── README.md
 ```
 
-## Entidades del Sistema
+## Estado del Proyecto
 
-### Course (Curso)
-- ID único
-- Nombre del curso
-- Descripción
-- Thumbnail (imagen)
-- Slug para URLs
-- Profesores asignados
-- Timestamps de gestión
+🚧 **En desarrollo** - Estructura básica creada
 
-### Class (Clase)
-- ID único
-- Pertenece a un curso
-- Nombre de la clase
-- Descripción
-- Slug para URLs
-- URL del video
-- Timestamps de gestión
+## Próximos Pasos
 
-### Teacher (Profesor)
-- ID único
-- Nombre completo
-- Email de contacto
-- Timestamps de gestión
+1. ✅ Crear estructura básica del proyecto
+2. ⏳ Configurar dependencias
+3. ⏳ Crear configuración de la aplicación
+4. ⏳ Implementar aplicación FastAPI básica
+5. ⏳ Dockerizar la aplicación
 
+## Características
 
-El enfoque es mantener la simplicidad y funcionalidad core sin features adicionales complejas.
+- API REST con FastAPI
+- Base de datos PostgreSQL
+- Configuración con variables de entorno
+- Docker y Docker Compose para desarrollo
+
+## Instalación
+
+### Desarrollo Local
+
+```bash
+uv sync
+uv run uvicorn app.main:app --reload
+```
+
+### Con Docker
+
+```bash
+docker compose up --build
+```
+
+## Endpoints
+
+- `GET /`: Mensaje de bienvenida
+- `GET /health`: Estado del servicio
+- `GET /docs`: Documentación automática de la API 
